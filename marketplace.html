@@ -82,7 +82,7 @@
             <span class="font-display font-bold text-xl sm:text-2xl tracking-tight text-white flex items-center gap-1">
               ResettingWorld<span class="text-punk-neonCyan">.com</span>
             </span>
-            <span class="block text-[10px] font-mono text-gray-400 tracking-widest uppercase">Autonomous Open-Source Architecture</span>
+            <span class="block text-[10px] font-mono text-gray-400 tracking-widest uppercase" data-i18n="brand_subtitle">Arquitectura Autònoma de Codi Obert</span>
           </div>
         </a>
       </div>
@@ -139,20 +139,20 @@
       <!-- LIVE STATS SUMMARY -->
       <div id="statsBar" class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8 font-mono text-xs">
         <div class="bg-punk-card border border-punk-border p-4">
-          <span class="text-gray-500 block">CAPSULES</span>
+          <span class="text-gray-500 block" data-i18n="stat_capsules">CÀPSULES</span>
           <span id="statCapsules" class="text-xl font-bold text-punk-neonCyan">50</span>
         </div>
         <div class="bg-punk-card border border-punk-border p-4">
-          <span class="text-gray-500 block">PDF VOLUMES</span>
+          <span class="text-gray-500 block" data-i18n="stat_books">VOLUMS PDF</span>
           <span id="statBooks" class="text-xl font-bold text-punk-neonYellow">—</span>
         </div>
         <div class="bg-punk-card border border-punk-border p-4">
-          <span class="text-gray-500 block">TOTAL SIZE</span>
+          <span class="text-gray-500 block" data-i18n="stat_size">MIDA TOTAL</span>
           <span id="statSize" class="text-xl font-bold text-punk-neonPink">—</span>
         </div>
         <div class="bg-punk-card border border-punk-border p-4">
-          <span class="text-gray-500 block">CAP PER PACK</span>
-          <span class="text-xl font-bold text-punk-neonGreen">&le; 50 PDFs</span>
+          <span class="text-gray-500 block" data-i18n="stat_cap">LÍMIT PER PACK</span>
+          <span class="text-xl font-bold text-punk-neonGreen" data-i18n="stat_cap_val">&le; 50 PDFs</span>
         </div>
       </div>
 
@@ -194,20 +194,31 @@
   </footer>
 
   <!-- SCRIPT: i18n + CATALOG FILTER -->
+  <script src="static/i18n.js"></script>
+  <script src="static/catalog.js"></script>
   <script>
-    let i18nData = {};
+    let i18nData = window.RW_I18N || {};
     let currentLang = 'ca';
-    let catalog = [];
+    let catalog = window.RW_CATALOG || [];
     let activeCategory = 'ALL';
+
+    const CAT_KEY_MAP = {
+      'Supervivència i Resiliència': 'cat_survival',
+      'Ciència i Coneixement Humà': 'cat_science',
+      'Tecnologia i Informàtica': 'cat_tech',
+      'Filosofia i Pensament': 'cat_philosophy'
+    };
 
     async function init() {
       try {
-        const [i18nRes, catRes] = await Promise.all([
-          fetch('static/i18n.json'),
-          fetch('static/catalog.json')
-        ]);
-        i18nData = await i18nRes.json();
-        catalog = await catRes.json();
+        if (!Object.keys(i18nData).length) {
+          const i18nRes = await fetch('static/i18n.json');
+          i18nData = await i18nRes.json();
+        }
+        if (!catalog.length) {
+          const catRes = await fetch('static/catalog.json');
+          catalog = await catRes.json();
+        }
 
         const savedLang = localStorage.getItem('rw_lang') || navigator.language.slice(0, 2);
         if (['ca', 'es', 'en'].includes(savedLang)) {
@@ -237,7 +248,11 @@
     }
 
     function applyLanguage(lang) {
-      const dict = i18nData[lang] || i18nData['ca'];
+      const dict = i18nData[lang] || i18nData['ca'] || {};
+      document.documentElement.lang = lang;
+      if (dict['page_title_mp']) {
+        document.title = dict['page_title_mp'];
+      }
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (dict[key]) {
@@ -265,10 +280,14 @@
       const dict = i18nData[currentLang] || i18nData['ca'] || {};
       const localLabel = dict['mp_download_local'] || 'Descàrrega Local';
       const ghLabel = dict['mp_download_github'] || 'GitHub Release';
+      const volumesLabel = dict['mp_volumes'] || 'volums PDF';
+      const verifiedLabel = dict['mp_verified'] || 'RAG VERIFICAT';
+      const emptyLabel = dict['mp_empty'] || 'Cap càpsula trobada amb aquests criteris.';
+      const defaultDesc = dict['mp_default_desc'] || 'Càpsula completa de coneixement tècnic i científic verificat.';
       grid.innerHTML = '';
 
       if (items.length === 0) {
-        grid.innerHTML = '<div class="col-span-full py-12 text-center font-mono text-gray-500">Cap càpsula trobada amb aquests criteris.</div>';
+        grid.innerHTML = `<div class="col-span-full py-12 text-center font-mono text-gray-500">${emptyLabel}</div>`;
         return;
       }
 
@@ -277,6 +296,8 @@
         const borderClass = isSurvival ? 'punk-border-pink border-punk-neonPink/60' : 'punk-border border-punk-border';
         const badgeColor = isSurvival ? 'bg-punk-neonPink text-white' : 'bg-punk-border text-gray-300';
         const releaseUrl = it.release_url || `https://github.com/resettingworld/catalogo/releases/download/v1.0.0/${it.file}`;
+        const catKey = CAT_KEY_MAP[it.portal_category];
+        const catLabel = (catKey && dict[catKey]) ? dict[catKey] : it.portal_category;
 
         const card = document.createElement('div');
         card.className = `bg-punk-card border p-6 flex flex-col justify-between transition-all hover:-translate-y-1 ${borderClass}`;
@@ -284,7 +305,7 @@
           <div>
             <div class="flex items-center justify-between mb-3">
               <span class="font-mono text-[10px] uppercase px-2 py-0.5 rounded-sm font-bold ${badgeColor}">
-                ${it.portal_category}
+                ${catLabel}
               </span>
               <span class="font-mono text-xs text-gray-400">${it.size_mb} MB</span>
             </div>
@@ -294,14 +315,14 @@
             </h3>
 
             <p class="text-gray-400 text-xs line-clamp-3 mb-4 leading-relaxed font-sans">
-              ${it.description || 'Càpsula completa de coneixement tècnic i científic verificat.'}
+              ${it.description || defaultDesc}
             </p>
           </div>
 
           <div class="pt-4 border-t border-punk-border/60">
             <div class="flex items-center justify-between text-xs font-mono mb-3">
-              <span class="text-gray-500">${it.books_count} volums PDF</span>
-              <span class="text-punk-neonCyan text-[11px] font-bold">RAG VERIFICAT</span>
+              <span class="text-gray-500">${it.books_count} ${volumesLabel}</span>
+              <span class="text-punk-neonCyan text-[11px] font-bold">${verifiedLabel}</span>
             </div>
 
             <div class="bg-punk-black border border-punk-border p-2 font-mono text-[11px] text-punk-neonGreen truncate mb-3 flex items-center justify-between">
