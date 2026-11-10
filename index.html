@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ca" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resetting World | Rethinking technology. Rebuilding the future.</title>
+  <meta name="description" content="A collaborative initiative to explore, experiment and build a more intelligent, open and sustainable technological world. 3 Pillars: Knowledge, Protocol & Hardware.">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="static/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="static/apple-touch-icon.png">
+  <meta property="og:image" content="static/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Space Grotesk', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+            display: ['Syne', 'sans-serif'],
+          },
+          colors: {
+            punk: {
+              black: '#090a0f',
+              dark: '#10121a',
+              card: '#161924',
+              border: '#282d40',
+              neonYellow: '#ffea00',
+              neonPink: '#ff007f',
+              neonCyan: '#00f0ff',
+              neonGreen: '#39ff14',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .bg-grid-pattern {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    }
+    .punk-border { box-shadow: 4px 4px 0px 0px rgba(0, 240, 255, 0.8); }
+    .punk-border-pink { box-shadow: 4px 4px 0px 0px rgba(255, 0, 127, 0.8); }
+    .punk-border-yellow { box-shadow: 4px 4px 0px 0px rgba(255, 234, 0, 0.9); }
+    .duct-tape {
+      background: rgba(220, 220, 220, 0.25);
+      backdrop-filter: blur(2px);
+      border-top: 1px dashed rgba(255,255,255,0.4);
+      border-bottom: 1px dashed rgba(255,255,255,0.4);
+    }
+  </style>
+</head>
+<body class="bg-punk-black text-gray-200 font-sans selection:bg-punk-neonPink selection:text-white bg-grid-pattern min-h-screen flex flex-col">
+
+  <!-- TOP RUNNING TICKER -->
+  <div class="bg-punk-neonYellow text-black font-mono font-bold text-xs py-1.5 px-4 text-center tracking-wider uppercase border-b-2 border-black flex items-center justify-between">
+    <div class="hidden sm:flex items-center gap-2">
+      <span class="inline-block w-2.5 h-2.5 bg-red-600 rounded-full animate-pulse"></span>
+      <span data-i18n="hero_badge">SISTEMA BASE AUTÒNOM • 100% CODI OBERT • ZERO NÚVOL</span>
+    </div>
+    <div class="mx-auto sm:mx-0 font-extrabold tracking-widest text-[11px]" data-i18n="hero_slogan">
+      RESETTING WORLD • RETHINKING TECHNOLOGY. REBUILDING THE FUTURE.
+    </div>
+    <!-- LANGUAGE SELECTOR -->
+    <div class="flex items-center space-x-1.5 font-mono text-[11px] bg-black text-white px-2 py-0.5 rounded-none border border-black">
+      <button onclick="setLanguage('ca')" id="btn-lang-ca" class="px-1.5 font-bold hover:text-punk-neonCyan transition-colors">CA</button>
+      <span class="text-gray-500">|</span>
+      <button onclick="setLanguage('es')" id="btn-lang-es" class="px-1.5 font-bold hover:text-punk-neonCyan transition-colors">ES</button>
+      <span class="text-gray-500">|</span>
+      <button onclick="setLanguage('en')" id="btn-lang-en" class="px-1.5 font-bold hover:text-punk-neonCyan transition-colors">EN</button>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <header class="border-b border-punk-border/60 bg-punk-dark/95 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="#home" class="flex items-center space-x-3 group">
+          <img src="static/logo.png" alt="Resetting World Logo" class="w-11 h-11 object-cover border border-punk-neonCyan/70 shadow-[2px_2px_0px_#ff007f] group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-all bg-punk-black">
+          <div>
+            <span class="font-display font-bold text-xl sm:text-2xl tracking-tight text-white flex items-center gap-1">
+              ResettingWorld<span class="text-punk-neonCyan">.com</span>
+            </span>
+            <span class="block text-[10px] font-mono text-gray-400 tracking-widest uppercase">Autonomous Open-Source Architecture</span>
+          </div>
+        </a>
+      </div>
+
+      <nav class="hidden lg:flex items-center space-x-7 text-xs font-mono tracking-wider uppercase">
+        <a href="#home" class="hover:text-punk-neonCyan transition-colors" data-i18n="nav_home">Inici</a>
+        <a href="#pillars" class="hover:text-punk-neonCyan transition-colors text-punk-neonCyan font-bold" data-i18n="nav_pillars">Els 3 Pilars</a>
+        <a href="#roadmap" class="hover:text-punk-neonCyan transition-colors" data-i18n="nav_roadmap">Full de Ruta</a>
+        <a href="#experiments" class="hover:text-punk-neonCyan transition-colors" data-i18n="nav_experiments">Experiments</a>
+        <a href="#join" class="hover:text-punk-neonCyan transition-colors" data-i18n="nav_join">Uneix-te</a>
+        <a href="marketplace.html" class="hover:text-punk-neonYellow transition-colors flex items-center gap-1.5 text-punk-neonYellow font-bold">
+          <span data-i18n="nav_marketplace">Marketplace</span>
+          <span class="bg-punk-neonPink text-white text-[9px] px-1.5 py-0.2 rounded-sm">50 PACKS</span>
+        </a>
+      </nav>
+
+      <div class="flex items-center space-x-3">
+        <a href="marketplace.html" class="bg-punk-neonPink hover:bg-punk-neonPink/90 text-white font-mono text-xs uppercase px-3.5 py-2 font-bold tracking-wider punk-border-yellow transition-all hover:translate-x-0.5 hover:translate-y-0.5">
+          <span data-i18n="nav_marketplace">Marketplace</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- SECTION 1: HOME (MANIFEST & VISION) -->
+  <section id="home" class="relative pt-20 pb-24 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto overflow-hidden">
+    <div class="absolute -top-20 -right-20 w-96 h-96 bg-punk-neonCyan/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute top-40 -left-20 w-96 h-96 bg-punk-neonPink/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="inline-flex items-center gap-2 px-3 py-1 bg-punk-card border border-punk-border text-punk-neonYellow font-mono text-xs uppercase mb-6 punk-border-yellow">
+        <span class="w-2 h-2 bg-punk-neonYellow rounded-full"></span>
+        <span data-i18n="hero_slogan">RETHINKING TECHNOLOGY. REBUILDING THE FUTURE.</span>
+      </div>
+      
+      <h1 class="font-display font-extrabold text-4xl sm:text-6xl lg:text-7xl text-white tracking-tight leading-[1.08] uppercase mb-8" data-i18n="hero_title">
+        La base tecnològica que continua viva quan cau el món connectat.
+      </h1>
+
+      <p class="text-lg sm:text-xl text-gray-300 font-sans leading-relaxed mb-10 max-w-3xl mx-auto" data-i18n="hero_desc">
+        Una iniciativa col·laborativa per explorar, experimentar i construir un món tecnològic més intel·ligent, obert, resilient i sostenible que no depèn d'Internet ni de la xarxa elèctrica.
+      </p>
+
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4 font-mono text-xs sm:text-sm">
+        <a href="#pillars" class="w-full sm:w-auto bg-punk-neonCyan hover:bg-punk-neonCyan/90 text-black font-bold px-8 py-4 uppercase tracking-wider punk-border-pink transition-all hover:translate-x-0.5 hover:translate-y-0.5 flex items-center justify-center gap-2">
+          <span data-i18n="hero_btn_explore">Explorar els 3 Pilars</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+        </a>
+        <a href="marketplace.html" class="w-full sm:w-auto bg-punk-card hover:bg-punk-dark text-white border border-punk-border px-8 py-4 uppercase tracking-wider transition-colors flex items-center justify-center gap-2">
+          <span data-i18n="hero_btn_marketplace">Catàleg RAG (50 Packs)</span>
+        </a>
+      </div>
+
+      <!-- LIVE TERMINAL EMULATOR -->
+      <div class="mt-14 max-w-2xl mx-auto text-left font-mono text-xs bg-punk-dark/95 border-2 border-punk-border p-4 shadow-2xl rounded-none punk-border relative">
+        <div class="absolute -top-3 right-4 duct-tape px-4 py-0.5 text-[10px] text-gray-300 tracking-wider font-bold" data-i18n="terminal_status">OFFLINE & DECENTRALITZAT</div>
+        <div class="flex items-center space-x-2 pb-3 mb-3 border-b border-punk-border/60 text-gray-500">
+          <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+          <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+          <span class="w-3 h-3 rounded-full bg-green-500/80 inline-block"></span>
+          <span class="text-gray-400 pl-2" data-i18n="terminal_title">node@resetting-world:~$</span>
+        </div>
+        <div class="space-y-1.5 text-gray-300">
+          <p><span class="text-punk-neonGreen">$</span> <span data-i18n="terminal_l1">rw-knowledge init --offline --model local-gemma</span></p>
+          <p class="text-gray-400" data-i18n="terminal_l2">[✓] 50 càpsules carregades a memòria local (0 bytes enviats al cloud)</p>
+          <p><span class="text-punk-neonGreen">$</span> <span data-i18n="terminal_l3">rw-protocol mesh start --transport lora,ble,wifi-direct</span></p>
+          <p class="text-punk-neonCyan" data-i18n="terminal_l4">[✓] Node P2P vinculat. 4 nodes veïns descoberts a la malla.</p>
+          <p><span class="text-punk-neonGreen">$</span> <span data-i18n="terminal_l5">rw-hardware status --source solar-lifepo4</span></p>
+          <p class="text-punk-neonYellow" data-i18n="terminal_l6">[✓] Bateria: 98% • Consum: 5.4W • Operació contínua estimada: Indefinida</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2: THE 3 PILLARS (ELS TRES PILARS) -->
+  <section id="pillars" class="py-24 bg-punk-dark border-t border-b border-punk-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="font-mono text-xs uppercase text-punk-neonCyan tracking-widest block mb-2" data-i18n="pillars_tag">[ ARQUITECTURA DEL SISTEMA ]</span>
+        <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white uppercase" data-i18n="pillars_title">Els Tres Pilars de Resetting World</h2>
+        <p class="text-gray-400 mt-4 text-sm sm:text-base leading-relaxed" data-i18n="pillars_subtitle">
+          Tres repositoris de codi obert coordinats per garantir la supervivència digital, la cooperació civil i la sobirania tecnològica.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        
+        <!-- PILAR 1: KNOWLEDGE -->
+        <div class="bg-punk-card border-2 border-punk-neonCyan p-8 flex flex-col justify-between punk-border">
+          <div>
+            <div class="flex items-center justify-between mb-4 border-b border-punk-border pb-3">
+              <span class="text-punk-neonCyan font-mono font-bold text-xs uppercase" data-i18n="p1_badge">REPOSITORI: rw-knowledge</span>
+              <span class="text-2xl font-mono font-extrabold text-punk-neonCyan" data-i18n="p1_num">01</span>
+            </div>
+            <h3 class="font-display font-bold text-2xl text-white uppercase mb-3" data-i18n="p1_title">El Coneixement (IA Local & RAGs)</h3>
+            <p class="text-gray-300 text-sm leading-relaxed mb-6" data-i18n="p1_desc">
+              Una intel·ligència artificial molt bàsica i eficient que opera sense connectivitat externa sobre càpsules RAG vectoritzades. Conté compendis de supervivència, tècnica, agricultura i ciència en volums de menys de 50 llibres cadascun.
+            </p>
+            <ul class="text-xs font-mono space-y-2 text-gray-400 border-t border-punk-border pt-4 mb-6">
+              <li class="flex items-start gap-2">
+                <span class="text-punk-neonCyan">&bull;</span>
+                <span data-i18n="p1_f1">Càpsules modulars (.zip) amb PDFs, imatges i índexs SQLite</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-punk-neonCyan">&bull;</span>
+                <span data-i18n="p1_f2">Cerca híbrida FTS5 + similitud semàntica per a models quantitzats</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-punk-neonCyan">&bull;</span>
+                <span data-i18n="p1_f3">Compatible amb l'API d'OpenAI per connectar qualsevol aplicació</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <a href="https://github.com/resettingworld/rw-knowledge" target="_blank" class="block text-center w-full bg-punk-dark hover:bg-punk-neonCyan hover:text-black text-white font-mono text-xs uppercase py-3 font-bold border border-punk-neonCyan transition-all" data-i18n="p1_btn">
+              Veure Codi a GitHub
+            </a>
+          </div>
+        </div>
+
+        <!-- PILAR 2: PROTOCOL -->
+        <div class="bg-punk-card border-2 border-punk-neonPink p-8 flex flex-col justify-between punk-border-pink">
+          <div>
+            <div class="flex items-center justify-between mb-4 border-b border-punk-border pb-3">
+              <span class="text-punk-neonPink font-mono font-bold text-xs uppercase" data-i18n="p2_badge">REPOSITORI: rw-protocol</span>
+              <span class="text-2xl font-mono font-extrabold text-punk-neonPink" data-i18n="p2_num">02</span>
+            </div>
+            <h3 class="font-display font-bold text-2xl text-white uppercase mb-3" data-i18n="p2_title">La Comunicació (Protocol Distribuït)</h3>
+            <p class="text-gray-300 text-sm leading-relaxed mb-6" data-i18n="p2_desc">
+              Un protocol de comunicació descentralitzat i asíncron (store-and-forward) sobre xarxes mesh LoRa, Wi-Fi Direct i Bluetooth. Permet connectar aplicacions connectables (pluggable apps) per intercanviar alertes, missatges i dades mèdiques.
+            </p>
+            <ul class="text-xs font-mono space-y-2 text-gray-400 border-t border-punk-border pt-4 mb-6">
+              <li class="flex items-start gap-2">
+                <span class="text-punk-neonPink">&bull;</span>
+                <span data-i18n="p2_f1">Arquitectura pluggable per a aplicacions d'emergència i xat</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-punk-neonPink">&bull;</span>
+                <span data-i18n="p2_f2">Ruta tolerant a retards (DTN) i transport mitjançant ràdio LoRa / BLE</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-punk-neonPink">&bull;</span>
+                <span data-i18n="p2_f3">Xifratge i signatures criptogràfiques Ed25519 a cada paquet</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <a href="https://github.com/resettingworld/rw-protocol" target="_blank" class="block text-center w-full bg-punk-dark hover:bg-punk-neonPink hover:text-white text-white font-mono text-xs uppercase py-3 font-bold border border-punk-neonPink transition-all" data-i18n="p2_btn">
+              Especificació del Protocol
+            </a>
+          </div>
+        </div>
+
+        <!-- PILAR 3: HARDWARE -->
+        <div class="bg-punk-card border-2 border-punk-neonYellow p-8 flex flex-col justify-between punk-border-yellow">
+          <div>
+            <div class="flex items-center justify-between mb-4 border-b border-punk-border pb-3">
+              <span class="text-punk-neonYellow font-mono font-bold text-xs uppercase" data-i18n="p3_badge">REPOSITORI: rw-hardware</span>
+              <span class="text-2xl font-mono font-extrabold text-punk-neonYellow" data-i18n="p3_num">03</span>
+            </div>
+            <h3 class="font-display font-bold text-2xl text-white uppercase mb-3" data-i18n="p3_title">El Maquinari (Node de Desconnexió)</h3>
+            <p class="text-gray-300 text-sm leading-relaxed mb-6" data-i18n="p3_desc">
+              Dissenys de maquinari obert, plànols 3D i guies de consum elèctric preparats per a panells solars i bateries LiFePO4. Des de Raspberry Pi 5 i telèfons Android fins a ordinadors reforçats per a la comunitat.
+            </p>
+            <ul class="text-xs font-mono space-y-2 text-gray-400 border-t border-punk-border pt-4 mb-6">
+              <li class="flex items-start gap-2">
+                <span class="text-punk-neonYellow">&bull;</span>
+                <span data-i18n="p3_f1">Perfils de consum ultra baix (5W a 15W) alimentables amb plaques solars</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-punk-neonYellow">&bull;</span>
+                <span data-i18n="p3_f2">Carcasses 3D reforçades IP65 amb refrigeració passiva sense ventiladors</span>
+              </li>
+              <li class="flex items-start gap-2">
+                <span class="text-punk-neonYellow">&bull;</span>
+                <span data-i18n="p3_f3">Guies de muntatge pas a pas amb components accessibles</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <a href="https://github.com/resettingworld/rw-hardware" target="_blank" class="block text-center w-full bg-punk-dark hover:bg-punk-neonYellow hover:text-black text-white font-mono text-xs uppercase py-3 font-bold border border-punk-neonYellow transition-all" data-i18n="p3_btn">
+              Plànols i BOM
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 3: ROADMAP -->
+  <section id="roadmap" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="font-mono text-xs uppercase text-punk-neonYellow tracking-widest block mb-2" data-i18n="roadmap_tag">[ EVOLUCIÓ DEL PROJECTE ]</span>
+      <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white uppercase" data-i18n="roadmap_title">Full de Ruta (Roadmap)</h2>
+      <p class="text-gray-400 mt-4 text-sm sm:text-base leading-relaxed" data-i18n="roadmap_subtitle">
+        Què volem explorar, investigar i construir col·laborativament en les properes fases.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      
+      <div class="bg-punk-card border border-punk-border p-6 relative">
+        <span class="text-[10px] font-mono font-bold text-punk-neonGreen bg-punk-dark px-2 py-0.5 border border-punk-neonGreen/40 uppercase block mb-3 w-fit" data-i18n="r1_phase">FASE 1 • ACTIVA</span>
+        <h3 class="font-display font-bold text-lg text-white uppercase mb-2" data-i18n="r1_title">Càpsules de Coneixement i RAGs Autònoms</h3>
+        <p class="text-gray-400 text-xs leading-relaxed" data-i18n="r1_desc">
+          Indexació de més de 1.000 tractats científics i manuals de supervivència de 14 dies, agricultura, potabilització i medicina en paquets descarregables de menys de 50 llibres.
+        </p>
+      </div>
+
+      <div class="bg-punk-card border border-punk-border p-6 relative">
+        <span class="text-[10px] font-mono font-bold text-punk-neonYellow bg-punk-dark px-2 py-0.5 border border-punk-neonYellow/40 uppercase block mb-3 w-fit" data-i18n="r2_phase">FASE 2 • EN DESENVOLUPAMENT</span>
+        <h3 class="font-display font-bold text-lg text-white uppercase mb-2" data-i18n="r2_title">Especificació rw-protocol i Xarxa Mesh LoRa</h3>
+        <p class="text-gray-400 text-xs leading-relaxed" data-i18n="r2_desc">
+          Definició formal de l'envelope de dades, sincronització de paquets per ràdio i desenvolupament d'un SDK en Rust i TypeScript per a aplicacions connectables.
+        </p>
+      </div>
+
+      <div class="bg-punk-card border border-punk-border p-6 relative">
+        <span class="text-[10px] font-mono font-bold text-punk-neonCyan bg-punk-dark px-2 py-0.5 border border-punk-border uppercase block mb-3 w-fit" data-i18n="r3_phase">FASE 3 • PLANIFICAT</span>
+        <h3 class="font-display font-bold text-lg text-white uppercase mb-2" data-i18n="r3_title">Kits de Maquinari Físic de Resiliència</h3>
+        <p class="text-gray-400 text-xs leading-relaxed" data-i18n="r3_desc">
+          Prototipatge de maletins rugosos d'emergència amb Raspberry Pi 5, mòdem LoRa SX1262, panell solar integrat i sistema operatiu rwOS preinstal·lat.
+        </p>
+      </div>
+
+      <div class="bg-punk-card border border-punk-border p-6 relative">
+        <span class="text-[10px] font-mono font-bold text-punk-neonPink bg-punk-dark px-2 py-0.5 border border-punk-border uppercase block mb-3 w-fit" data-i18n="r4_phase">FASE 4 • FUTUR</span>
+        <h3 class="font-display font-bold text-lg text-white uppercase mb-2" data-i18n="r4_title">Xarxa Comunitària Global Sneakernet</h3>
+        <p class="text-gray-400 text-xs leading-relaxed" data-i18n="r4_desc">
+          Mecanisme automàtic d'intercanvi de versions de coneixement mitjançant memòries USB i punts d'intercanvi físics entre comunitats aïllades.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 4: EXPERIMENTS & PROOFS OF CONCEPT -->
+  <section id="experiments" class="py-24 bg-punk-dark border-t border-b border-punk-border">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="font-mono text-xs uppercase text-punk-neonPink tracking-widest block mb-2" data-i18n="experiments_tag">[ LABORATORI D'INVESTIGACIÓ ]</span>
+        <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white uppercase" data-i18n="experiments_title">Experiments i Proves de Concepte</h2>
+        <p class="text-gray-400 mt-4 text-sm sm:text-base leading-relaxed" data-i18n="experiments_subtitle">
+          Proves pràctiques realitzades pel col·lectiu sobre entorns reals de desconnexió.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <div class="bg-punk-card border border-punk-border p-6 punk-border flex flex-col justify-between">
+          <div>
+            <div class="font-mono text-xs text-punk-neonCyan uppercase font-bold mb-2">EXPERIMENT #01 &bull; FÍSICA APLICADA</div>
+            <h3 class="font-display font-bold text-xl text-white uppercase mb-3" data-i18n="exp1_title">Conservació d'Aliments sense Llum (Zeer Pot)</h3>
+            <p class="text-gray-300 text-sm leading-relaxed mb-4" data-i18n="exp1_desc">
+              Proves termodinàmiques de refrigeració evaporativa amb fang cuit i sorra humida, aconseguint un descens tèrmic de -9°C a 38°C ambient.
+            </p>
+          </div>
+          <div class="border-t border-punk-border pt-3 font-mono text-xs text-gray-500">
+            Mesura: Termoparell K &bull; Resultat: +18 dies de conservació en verdures
+          </div>
+        </div>
+
+        <div class="bg-punk-card border border-punk-border p-6 punk-border-yellow flex flex-col justify-between">
+          <div>
+            <div class="font-mono text-xs text-punk-neonYellow uppercase font-bold mb-2">EXPERIMENT #02 &bull; QUÍMICA D'EMERGÈNCIA</div>
+            <h3 class="font-display font-bold text-xl text-white uppercase mb-3" data-i18n="exp2_title">Generació de Llum d'Emergència Química</h3>
+            <p class="text-gray-300 text-sm leading-relaxed mb-4" data-i18n="exp2_desc">
+              Cel·les galvàniques de coure-zinc en solució salina alimentant LEDs d'alta eficiència durant 120 hores ininterrompudes.
+            </p>
+          </div>
+          <div class="border-t border-punk-border pt-3 font-mono text-xs text-gray-500">
+            Mesura: 3.2V en circuit tancat &bull; Cost: 0 € amb materials domèstics
+          </div>
+        </div>
+
+        <div class="bg-punk-card border border-punk-border p-6 punk-border-pink flex flex-col justify-between">
+          <div>
+            <div class="font-mono text-xs text-punk-neonPink uppercase font-bold mb-2">EXPERIMENT #03 &bull; EDGE COMPUTING</div>
+            <h3 class="font-display font-bold text-xl text-white uppercase mb-3" data-i18n="exp3_title">Inferència RAG Local a Raspberry Pi 5 (4GB RAM)</h3>
+            <p class="text-gray-300 text-sm leading-relaxed mb-4" data-i18n="exp3_desc">
+              Execució de models quantitzats en 4 bits amb temps de resposta mitjà de 180ms emprant índexs SQLite locals.
+            </p>
+          </div>
+          <div class="border-t border-punk-border pt-3 font-mono text-xs text-gray-500">
+            Consum pic: 7.8W &bull; Sense escalfament crític amb dissipació passiva
+          </div>
+        </div>
+
+        <div class="bg-punk-card border border-punk-border p-6 punk-border flex flex-col justify-between">
+          <div>
+            <div class="font-mono text-xs text-punk-neonCyan uppercase font-bold mb-2">EXPERIMENT #04 &bull; RÀDIO I MESH</div>
+            <h3 class="font-display font-bold text-xl text-white uppercase mb-3" data-i18n="exp4_title">Relay LoRa de Llarg Abast (868MHz)</h3>
+            <p class="text-gray-300 text-sm leading-relaxed mb-4" data-i18n="exp4_desc">
+              Transmissió d'alertes mèdiques i índexs d'emergència a 14 km de distància directa sense necessitat de repetidors connectats a la xarxa.
+            </p>
+          </div>
+          <div class="border-t border-punk-border pt-3 font-mono text-xs text-gray-500">
+            Modulació: SF11 &bull; Pèrdua de paquets: 0.8% a línia de visió directa
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECTION 5: JOIN THE MOVEMENT (COMMUNITY DRIVEN & OPEN COLLABORATION) -->
+  <section id="join" class="py-24 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <span class="font-mono text-xs uppercase text-punk-neonCyan tracking-widest block mb-2" data-i18n="join_tag">[ OPEN COLLABORATION ]</span>
+      <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white uppercase" data-i18n="join_title">Uneix-te al Moviment (Community Driven)</h2>
+      <p class="text-gray-400 mt-4 text-sm sm:text-base leading-relaxed" data-i18n="join_subtitle">
+        Desenvolupadors, arquitectes de sistemes, agrònoms, metges, radioaficionats i entusiastes: necessitem les teves mans i les teves idees.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+      
+      <div class="bg-punk-card border border-punk-border p-6">
+        <div class="text-punk-neonCyan font-mono font-bold text-xs uppercase mb-2">ROL 01</div>
+        <h3 class="font-display font-bold text-xl text-white uppercase mb-3" data-i18n="join_col1_title">Enginyers de Programari & Ràdio</h3>
+        <p class="text-gray-300 text-sm leading-relaxed" data-i18n="join_col1_desc">
+          Ajuda'ns a codificar els connectors pluggable per al protocol descentralitzat (LoRa, BLE, Wi-Fi Direct) i a optimitzar els motors de cerca vectorial en ARM64.
+        </p>
+      </div>
+
+      <div class="bg-punk-card border border-punk-border p-6">
+        <div class="text-punk-neonPink font-mono font-bold text-xs uppercase mb-2">ROL 02</div>
+        <h3 class="font-display font-bold text-xl text-white uppercase mb-3" data-i18n="join_col2_title">Curadors de Coneixement & Ciència</h3>
+        <p class="text-gray-300 text-sm leading-relaxed" data-i18n="join_col2_desc">
+          Cataloga, revisa i enriqueix llibres de domini públic en medicina d'urgència, construcció, agroecologia i ciències exactes.
+        </p>
+      </div>
+
+      <div class="bg-punk-card border border-punk-border p-6">
+        <div class="text-punk-neonYellow font-mono font-bold text-xs uppercase mb-2">ROL 03</div>
+        <h3 class="font-display font-bold text-xl text-white uppercase mb-3" data-i18n="join_col3_title">Makers & Dissenyadors de Maquinari</h3>
+        <p class="text-gray-300 text-sm leading-relaxed" data-i18n="join_col3_desc">
+          Dissenya carcasses resistents a l'aigua, esquemes de gestió de bateries LiFePO4 i estacions solars compactes per a zones aïllades.
+        </p>
+      </div>
+
+    </div>
+
+    <div class="text-center">
+      <a href="https://github.com/resettingworld" target="_blank" class="inline-flex items-center gap-3 bg-punk-neonCyan hover:bg-punk-neonCyan/90 text-black font-mono font-bold text-sm uppercase px-10 py-5 punk-border-pink transition-all hover:translate-x-0.5 hover:translate-y-0.5">
+        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        <span data-i18n="join_cta">Participa al Repositori de GitHub</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- MARKETPLACE CTA SECTION (LINKS TO INDEPENDENT MARKETPLACE PAGE & CATALOGO REPO) -->
+  <section id="marketplace-cta" class="py-20 bg-punk-dark/80 border-t border-punk-border">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-punk-card border-2 border-punk-neonYellow p-8 sm:p-12 punk-border-yellow text-center">
+        <span class="font-mono text-xs uppercase text-punk-neonYellow tracking-widest block mb-3" data-i18n="home_mp_cta_tag">[ REPOSITORI GRATUÏT DE CONEIXEMENT ]</span>
+        <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white uppercase mb-4" data-i18n="home_mp_cta_title">
+          Explora el Marketplace de 50 Càpsules RAG
+        </h2>
+        <p class="text-gray-300 text-sm sm:text-base max-w-2xl mx-auto mb-8 leading-relaxed" data-i18n="home_mp_cta_desc">
+          Accedeix a la pàgina independent del Marketplace per cercar, filtrar i descarregar gratuïtament totes les càpsules de coneixement (supervivència, ciència, tecnologia i filosofia) des del repositori obert catalogo.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4 font-mono text-xs sm:text-sm">
+          <a href="marketplace.html" class="w-full sm:w-auto bg-punk-neonYellow hover:bg-punk-neonYellow/90 text-black font-bold px-8 py-4 uppercase tracking-wider punk-border-pink transition-all hover:translate-x-0.5 hover:translate-y-0.5" data-i18n="home_mp_cta_btn">
+            Obrir Marketplace (50 Packs)
+          </a>
+          <a href="https://github.com/resettingworld/catalogo" target="_blank" class="w-full sm:w-auto bg-punk-dark hover:bg-punk-border text-punk-neonCyan border border-punk-neonCyan px-8 py-4 uppercase tracking-wider transition-colors" data-i18n="home_mp_repo_btn">
+            Veure Dades a GitHub (catalogo)
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-punk-border bg-punk-black py-12 font-mono text-xs text-gray-500 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <span class="text-white font-display font-bold">RESETTING WORLD</span> &bull; <span data-i18n="footer_msg">Rethinking technology. Rebuilding the future.</span>
+      </div>
+      <div class="flex items-center space-x-6 text-gray-400">
+        <a href="https://github.com/resettingworld/rw-knowledge" target="_blank" class="hover:text-punk-neonCyan">rw-knowledge</a>
+        <a href="https://github.com/resettingworld/rw-protocol" target="_blank" class="hover:text-punk-neonPink">rw-protocol</a>
+        <a href="https://github.com/resettingworld/rw-hardware" target="_blank" class="hover:text-punk-neonYellow">rw-hardware</a>
+        <a href="https://github.com/resettingworld/catalogo" target="_blank" class="hover:text-punk-neonGreen">catalogo</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT: i18n -->
+  <script>
+    let i18nData = {};
+    let currentLang = 'ca';
+
+    async function init() {
+      try {
+        const i18nRes = await fetch('static/i18n.json');
+        i18nData = await i18nRes.json();
+
+        const savedLang = localStorage.getItem('rw_lang') || navigator.language.slice(0, 2);
+        if (['ca', 'es', 'en'].includes(savedLang)) {
+          currentLang = savedLang;
+        }
+        applyLanguage(currentLang);
+      } catch (err) {
+        console.error('Error inicialitzant i18n:', err);
+      }
+    }
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('rw_lang', lang);
+      applyLanguage(lang);
+    }
+
+    function applyLanguage(lang) {
+      const dict = i18nData[lang] || i18nData['ca'];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+          el.innerText = dict[key];
+        }
+      });
+
+      ['ca', 'es', 'en'].forEach(l => {
+        const btn = document.getElementById(`btn-lang-${l}`);
+        if (btn) {
+          btn.className = l === lang
+            ? 'px-1.5 font-bold text-punk-neonYellow bg-punk-border'
+            : 'px-1.5 font-bold text-gray-300 hover:text-punk-neonCyan';
+        }
+      });
+    }
+
+    init();
+  </script>
+
+</body>
+</html>

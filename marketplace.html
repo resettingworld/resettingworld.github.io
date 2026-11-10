@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="ca" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marketplace RAG | Resetting World</title>
+  <meta name="description" content="Free, open-source offline RAG knowledge capsules from Resetting World (catalogo repository). Survival, medicine, agriculture, science, and engineering.">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="icon" type="image/png" sizes="32x32" href="static/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="static/favicon-16x16.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="static/apple-touch-icon.png">
+  <meta property="og:image" content="static/logo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&family=JetBrains+Mono:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Space Grotesk', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+            display: ['Syne', 'sans-serif'],
+          },
+          colors: {
+            punk: {
+              black: '#090a0f',
+              dark: '#10121a',
+              card: '#161924',
+              border: '#282d40',
+              neonYellow: '#ffea00',
+              neonPink: '#ff007f',
+              neonCyan: '#00f0ff',
+              neonGreen: '#39ff14',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .bg-grid-pattern {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    }
+    .punk-border { box-shadow: 4px 4px 0px 0px rgba(0, 240, 255, 0.8); }
+    .punk-border-pink { box-shadow: 4px 4px 0px 0px rgba(255, 0, 127, 0.8); }
+    .punk-border-yellow { box-shadow: 4px 4px 0px 0px rgba(255, 234, 0, 0.9); }
+  </style>
+</head>
+<body class="bg-punk-black text-gray-200 font-sans selection:bg-punk-neonPink selection:text-white bg-grid-pattern min-h-screen flex flex-col">
+
+  <!-- TOP RUNNING TICKER -->
+  <div class="bg-punk-neonYellow text-black font-mono font-bold text-xs py-1.5 px-4 text-center tracking-wider uppercase border-b-2 border-black flex items-center justify-between">
+    <div class="hidden sm:flex items-center gap-2">
+      <span class="inline-block w-2.5 h-2.5 bg-red-600 rounded-full animate-pulse"></span>
+      <span data-i18n="hero_badge">SISTEMA BASE AUTÒNOM • 100% CODI OBERT • ZERO NÚVOL</span>
+    </div>
+    <div class="mx-auto sm:mx-0 font-extrabold tracking-widest text-[11px]" data-i18n="hero_slogan">
+      RESETTING WORLD • RETHINKING TECHNOLOGY. REBUILDING THE FUTURE.
+    </div>
+    <div class="flex items-center space-x-1.5 font-mono text-[11px] bg-black text-white px-2 py-0.5 border border-black">
+      <button onclick="setLanguage('ca')" id="btn-lang-ca" class="px-1.5 font-bold hover:text-punk-neonCyan transition-colors">CA</button>
+      <span class="text-gray-500">|</span>
+      <button onclick="setLanguage('es')" id="btn-lang-es" class="px-1.5 font-bold hover:text-punk-neonCyan transition-colors">ES</button>
+      <span class="text-gray-500">|</span>
+      <button onclick="setLanguage('en')" id="btn-lang-en" class="px-1.5 font-bold hover:text-punk-neonCyan transition-colors">EN</button>
+    </div>
+  </div>
+
+  <!-- NAVIGATION -->
+  <header class="border-b border-punk-border/60 bg-punk-dark/95 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <a href="index.html" class="flex items-center space-x-3 group">
+          <img src="static/logo.png" alt="Resetting World Logo" class="w-11 h-11 object-cover border border-punk-neonCyan/70 shadow-[2px_2px_0px_#ff007f] group-hover:translate-x-0.5 group-hover:translate-y-0.5 transition-all bg-punk-black">
+          <div>
+            <span class="font-display font-bold text-xl sm:text-2xl tracking-tight text-white flex items-center gap-1">
+              ResettingWorld<span class="text-punk-neonCyan">.com</span>
+            </span>
+            <span class="block text-[10px] font-mono text-gray-400 tracking-widest uppercase">Autonomous Open-Source Architecture</span>
+          </div>
+        </a>
+      </div>
+
+      <nav class="hidden lg:flex items-center space-x-7 text-xs font-mono tracking-wider uppercase">
+        <a href="index.html#home" class="hover:text-punk-neonCyan transition-colors" data-i18n="nav_home">Inici</a>
+        <a href="index.html#pillars" class="hover:text-punk-neonCyan transition-colors" data-i18n="nav_pillars">Els 3 Pilars</a>
+        <a href="index.html#roadmap" class="hover:text-punk-neonCyan transition-colors" data-i18n="nav_roadmap">Full de Ruta</a>
+        <a href="index.html#experiments" class="hover:text-punk-neonCyan transition-colors" data-i18n="nav_experiments">Experiments</a>
+        <a href="index.html#join" class="hover:text-punk-neonCyan transition-colors" data-i18n="nav_join">Uneix-te</a>
+        <a href="marketplace.html" class="text-punk-neonYellow font-bold flex items-center gap-1.5 border-b-2 border-punk-neonYellow pb-0.5">
+          <span data-i18n="nav_marketplace">Marketplace</span>
+          <span class="bg-punk-neonPink text-white text-[9px] px-1.5 py-0.2 rounded-sm">50 PACKS</span>
+        </a>
+      </nav>
+
+      <div class="flex items-center space-x-3">
+        <a href="https://github.com/resettingworld/catalogo" target="_blank" class="bg-punk-card hover:bg-punk-border text-punk-neonCyan font-mono text-xs uppercase px-3.5 py-2 font-bold tracking-wider border border-punk-neonCyan transition-all" data-i18n="mp_repo_btn">
+          Repositori de Dades (catalogo)
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- MARKETPLACE HEADER & CATALOG -->
+  <main class="flex-grow py-14 sm:py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+      <div class="mb-6">
+        <a href="index.html" class="font-mono text-xs text-punk-neonCyan hover:underline uppercase tracking-wider" data-i18n="mp_back_home">
+          ← Tornar a l'Inici
+        </a>
+      </div>
+
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+        <div>
+          <span class="font-mono text-xs uppercase text-punk-neonYellow tracking-widest block mb-2">[ RESETTINGWORLD / CATALOGO ]</span>
+          <h1 class="font-display font-extrabold text-3xl sm:text-5xl text-white uppercase" data-i18n="marketplace_title">Marketplace de Càpsules RAG (50 Packs)</h1>
+          <p class="text-gray-400 mt-3 text-sm sm:text-base max-w-2xl" data-i18n="marketplace_subtitle">
+            Descàrrega gratuïta de càpsules RAG per al pilar rw-knowledge. Sense registre ni llicències.
+          </p>
+        </div>
+
+        <!-- FILTER CONTROLS -->
+        <div class="flex flex-wrap items-center gap-2 font-mono text-xs">
+          <button onclick="filterCategory('ALL')" id="btn-filter-all" class="cat-btn bg-punk-neonCyan text-black font-bold px-3 py-1.5 border border-transparent" data-i18n="filter_all">Tots (50)</button>
+          <button onclick="filterCategory('Supervivència i Resiliència')" class="cat-btn bg-punk-card hover:bg-punk-border text-gray-300 px-3 py-1.5 border border-punk-border" data-i18n="filter_survival">Supervivència</button>
+          <button onclick="filterCategory('Ciència i Coneixement Humà')" class="cat-btn bg-punk-card hover:bg-punk-border text-gray-300 px-3 py-1.5 border border-punk-border" data-i18n="filter_science">Ciència</button>
+          <button onclick="filterCategory('Tecnologia i Informàtica')" class="cat-btn bg-punk-card hover:bg-punk-border text-gray-300 px-3 py-1.5 border border-punk-border" data-i18n="filter_tech">Tecnologia</button>
+          <button onclick="filterCategory('Filosofia i Pensament')" class="cat-btn bg-punk-card hover:bg-punk-border text-gray-300 px-3 py-1.5 border border-punk-border" data-i18n="filter_philosophy">Filosofia</button>
+        </div>
+      </div>
+
+      <!-- LIVE STATS SUMMARY -->
+      <div id="statsBar" class="grid grid-cols-2 sm:grid-cols-4 gap-4 mb-8 font-mono text-xs">
+        <div class="bg-punk-card border border-punk-border p-4">
+          <span class="text-gray-500 block">CAPSULES</span>
+          <span id="statCapsules" class="text-xl font-bold text-punk-neonCyan">50</span>
+        </div>
+        <div class="bg-punk-card border border-punk-border p-4">
+          <span class="text-gray-500 block">PDF VOLUMES</span>
+          <span id="statBooks" class="text-xl font-bold text-punk-neonYellow">—</span>
+        </div>
+        <div class="bg-punk-card border border-punk-border p-4">
+          <span class="text-gray-500 block">TOTAL SIZE</span>
+          <span id="statSize" class="text-xl font-bold text-punk-neonPink">—</span>
+        </div>
+        <div class="bg-punk-card border border-punk-border p-4">
+          <span class="text-gray-500 block">CAP PER PACK</span>
+          <span class="text-xl font-bold text-punk-neonGreen">&le; 50 PDFs</span>
+        </div>
+      </div>
+
+      <!-- SEARCH BAR -->
+      <div class="mb-8">
+        <div class="relative">
+          <input 
+            type="text" 
+            id="searchInput" 
+            onkeyup="searchPacks()" 
+            placeholder="Cerca per paraula clau (ex: aigua, plagues, cultiu, algoritmes, fisica, medicina)..." 
+            class="w-full bg-punk-card border-2 border-punk-border px-5 py-3.5 text-white placeholder-gray-500 font-mono text-sm focus:outline-none focus:border-punk-neonCyan transition-colors"
+          />
+          <span class="absolute right-4 top-3.5 text-gray-500 font-mono text-xs hidden sm:inline">LIVE RAG FILTER</span>
+        </div>
+      </div>
+
+      <!-- CARDS GRID -->
+      <div id="packsGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Rendered dynamically by JS -->
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-punk-border bg-punk-black py-12 font-mono text-xs text-gray-500 mt-auto">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div>
+        <span class="text-white font-display font-bold">RESETTING WORLD</span> &bull; <span data-i18n="footer_msg">Rethinking technology. Rebuilding the future.</span>
+      </div>
+      <div class="flex items-center space-x-6 text-gray-400">
+        <a href="https://github.com/resettingworld/rw-knowledge" target="_blank" class="hover:text-punk-neonCyan">rw-knowledge</a>
+        <a href="https://github.com/resettingworld/rw-protocol" target="_blank" class="hover:text-punk-neonPink">rw-protocol</a>
+        <a href="https://github.com/resettingworld/rw-hardware" target="_blank" class="hover:text-punk-neonYellow">rw-hardware</a>
+        <a href="https://github.com/resettingworld/catalogo" target="_blank" class="hover:text-punk-neonGreen">catalogo</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SCRIPT: i18n + CATALOG FILTER -->
+  <script>
+    let i18nData = {};
+    let currentLang = 'ca';
+    let catalog = [];
+    let activeCategory = 'ALL';
+
+    async function init() {
+      try {
+        const [i18nRes, catRes] = await Promise.all([
+          fetch('static/i18n.json'),
+          fetch('static/catalog.json')
+        ]);
+        i18nData = await i18nRes.json();
+        catalog = await catRes.json();
+
+        const savedLang = localStorage.getItem('rw_lang') || navigator.language.slice(0, 2);
+        if (['ca', 'es', 'en'].includes(savedLang)) {
+          currentLang = savedLang;
+        }
+        updateStats(catalog);
+        applyLanguage(currentLang);
+        renderCatalog(catalog);
+      } catch (err) {
+        console.error('Error inicialitzant marketplace:', err);
+      }
+    }
+
+    function updateStats(items) {
+      const totalBooks = items.reduce((sum, it) => sum + (it.books_count || 0), 0);
+      const totalMb = items.reduce((sum, it) => sum + (it.size_mb || 0), 0);
+      document.getElementById('statCapsules').innerText = items.length;
+      document.getElementById('statBooks').innerText = totalBooks.toLocaleString();
+      document.getElementById('statSize').innerText = (totalMb / 1024).toFixed(2) + ' GB';
+    }
+
+    function setLanguage(lang) {
+      currentLang = lang;
+      localStorage.setItem('rw_lang', lang);
+      applyLanguage(lang);
+      renderCatalog(getFilteredItems());
+    }
+
+    function applyLanguage(lang) {
+      const dict = i18nData[lang] || i18nData['ca'];
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (dict[key]) {
+          el.innerText = dict[key];
+        }
+      });
+
+      const searchEl = document.getElementById('searchInput');
+      if (searchEl && dict['search_placeholder']) {
+        searchEl.placeholder = dict['search_placeholder'];
+      }
+
+      ['ca', 'es', 'en'].forEach(l => {
+        const btn = document.getElementById(`btn-lang-${l}`);
+        if (btn) {
+          btn.className = l === lang
+            ? 'px-1.5 font-bold text-punk-neonYellow bg-punk-border'
+            : 'px-1.5 font-bold text-gray-300 hover:text-punk-neonCyan';
+        }
+      });
+    }
+
+    function renderCatalog(items) {
+      const grid = document.getElementById('packsGrid');
+      const dict = i18nData[currentLang] || i18nData['ca'] || {};
+      const localLabel = dict['mp_download_local'] || 'Descàrrega Local';
+      const ghLabel = dict['mp_download_github'] || 'GitHub Release';
+      grid.innerHTML = '';
+
+      if (items.length === 0) {
+        grid.innerHTML = '<div class="col-span-full py-12 text-center font-mono text-gray-500">Cap càpsula trobada amb aquests criteris.</div>';
+        return;
+      }
+
+      items.forEach(it => {
+        const isSurvival = it.is_survival;
+        const borderClass = isSurvival ? 'punk-border-pink border-punk-neonPink/60' : 'punk-border border-punk-border';
+        const badgeColor = isSurvival ? 'bg-punk-neonPink text-white' : 'bg-punk-border text-gray-300';
+        const releaseUrl = it.release_url || `https://github.com/resettingworld/catalogo/releases/download/v1.0.0/${it.file}`;
+
+        const card = document.createElement('div');
+        card.className = `bg-punk-card border p-6 flex flex-col justify-between transition-all hover:-translate-y-1 ${borderClass}`;
+        card.innerHTML = `
+          <div>
+            <div class="flex items-center justify-between mb-3">
+              <span class="font-mono text-[10px] uppercase px-2 py-0.5 rounded-sm font-bold ${badgeColor}">
+                ${it.portal_category}
+              </span>
+              <span class="font-mono text-xs text-gray-400">${it.size_mb} MB</span>
+            </div>
+
+            <h3 class="font-display font-bold text-lg text-white uppercase mb-2 leading-snug">
+              ${it.name}
+            </h3>
+
+            <p class="text-gray-400 text-xs line-clamp-3 mb-4 leading-relaxed font-sans">
+              ${it.description || 'Càpsula completa de coneixement tècnic i científic verificat.'}
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-punk-border/60">
+            <div class="flex items-center justify-between text-xs font-mono mb-3">
+              <span class="text-gray-500">${it.books_count} volums PDF</span>
+              <span class="text-punk-neonCyan text-[11px] font-bold">RAG VERIFICAT</span>
+            </div>
+
+            <div class="bg-punk-black border border-punk-border p-2 font-mono text-[11px] text-punk-neonGreen truncate mb-3 flex items-center justify-between">
+              <span class="truncate">${it.install_command}</span>
+              <button onclick="navigator.clipboard.writeText('${it.install_command}');" class="text-gray-400 hover:text-white ml-2 flex-shrink-0" title="Copy">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/></svg>
+              </button>
+            </div>
+
+            <div class="grid grid-cols-2 gap-2">
+              <a href="packs/${it.file}" download class="block text-center bg-punk-dark hover:bg-punk-neonCyan hover:text-black text-gray-300 font-mono text-[11px] uppercase py-2 tracking-wider border border-punk-border transition-colors">
+                ${localLabel}
+              </a>
+              <a href="${releaseUrl}" target="_blank" class="block text-center bg-punk-dark hover:bg-punk-neonPink hover:text-white text-gray-300 font-mono text-[11px] uppercase py-2 tracking-wider border border-punk-border transition-colors">
+                ${ghLabel}
+              </a>
+            </div>
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function filterCategory(cat) {
+      activeCategory = cat;
+      document.querySelectorAll('.cat-btn').forEach(btn => {
+        if ((cat === 'ALL' && (btn.id === 'btn-filter-all' || btn.innerText.includes('Tots') || btn.innerText.includes('Todos') || btn.innerText.includes('All'))) || 
+            btn.innerText.toLowerCase().includes(cat.split(' ')[0].toLowerCase())) {
+          btn.className = 'cat-btn bg-punk-neonCyan text-black font-bold px-3 py-1.5 border border-transparent';
+        } else {
+          btn.className = 'cat-btn bg-punk-card hover:bg-punk-border text-gray-300 px-3 py-1.5 border border-punk-border';
+        }
+      });
+      searchPacks();
+    }
+
+    function getFilteredItems() {
+      const q = document.getElementById('searchInput').value.toLowerCase().trim();
+      let filtered = catalog;
+      if (activeCategory !== 'ALL') {
+        filtered = filtered.filter(it => it.portal_category === activeCategory);
+      }
+      if (q) {
+        filtered = filtered.filter(it => 
+          it.name.toLowerCase().includes(q) || 
+          it.id.toLowerCase().includes(q) || 
+          (it.description && it.description.toLowerCase().includes(q)) ||
+          it.portal_category.toLowerCase().includes(q)
+        );
+      }
+      return filtered;
+    }
+
+    function searchPacks() {
+      const filtered = getFilteredItems();
+      renderCatalog(filtered);
+    }
+
+    init();
+  </script>
+
+</body>
+</html>
