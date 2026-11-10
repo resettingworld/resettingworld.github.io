@@ -12,6 +12,7 @@
     "is_survival": true,
     "install_command": "smart-local import-pack agricultura-general-i-sostenible-v1.0.0.zip",
     "rag_id": "agricultura-general-i-sostenible",
+    "cover_image": "static/covers/agricultura-general-i-sostenible.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/agricultura-general-i-sostenible-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/agricultura-general-i-sostenible"
   },
@@ -28,6 +29,7 @@
     "is_survival": true,
     "install_command": "smart-local import-pack jardineria-horticultura-urbana-v1.0.0.zip",
     "rag_id": "jardineria-horticultura-urbana",
+    "cover_image": "static/covers/jardineria-horticultura-urbana.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/jardineria-horticultura-urbana-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/jardineria-horticultura-urbana"
   },
@@ -44,6 +46,7 @@
     "is_survival": true,
     "install_command": "smart-local import-pack compostatge-fertilitat-sol-v1.0.0.zip",
     "rag_id": "compostatge-fertilitat-sol",
+    "cover_image": "static/covers/compostatge-fertilitat-sol.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/compostatge-fertilitat-sol-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/compostatge-fertilitat-sol"
   },
@@ -60,6 +63,7 @@
     "is_survival": true,
     "install_command": "smart-local import-pack cultiu-interior-hidroponia-v1.0.0.zip",
     "rag_id": "cultiu-interior-hidroponia",
+    "cover_image": "static/covers/cultiu-interior-hidroponia.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/cultiu-interior-hidroponia-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/cultiu-interior-hidroponia"
   },
@@ -76,6 +80,7 @@
     "is_survival": true,
     "install_command": "smart-local import-pack permacultura-agroecologia-v1.0.0.zip",
     "rag_id": "permacultura-agroecologia",
+    "cover_image": "static/covers/permacultura-agroecologia.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/permacultura-agroecologia-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/permacultura-agroecologia"
   },
@@ -92,6 +97,7 @@
     "is_survival": true,
     "install_command": "smart-local import-pack control-de-plagas-v1.0.0.zip",
     "rag_id": "control-de-plagas",
+    "cover_image": "static/covers/control-de-plagas.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/control-de-plagas-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/control-de-plagas"
   },
@@ -108,6 +114,7 @@
     "is_survival": true,
     "install_command": "smart-local import-pack gutenberg-earth-agricultural-sciences-v1.0.0.zip",
     "rag_id": "gutenberg-earth-agricultural-sciences",
+    "cover_image": "static/covers/gutenberg-earth-agricultural-sciences.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/gutenberg-earth-agricultural-sciences-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/gutenberg-earth-agricultural-sciences"
   },
@@ -124,6 +131,7 @@
     "is_survival": true,
     "install_command": "smart-local import-pack gutenberg-health-medicine-v1.0.0.zip",
     "rag_id": "gutenberg-health-medicine",
+    "cover_image": "static/covers/gutenberg-health-medicine.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/gutenberg-health-medicine-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/gutenberg-health-medicine"
   },
@@ -140,6 +148,7 @@
     "is_survival": true,
     "install_command": "smart-local import-pack gutenberg-practical-manuals-how-to-v1.0.0.zip",
     "rag_id": "gutenberg-practical-manuals-how-to",
+    "cover_image": "static/covers/gutenberg-practical-manuals-how-to.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/gutenberg-practical-manuals-how-to-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/gutenberg-practical-manuals-how-to"
   },
@@ -156,6 +165,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack ciencias-sociales-v1.0.0.zip",
     "rag_id": "ciencias-sociales",
+    "cover_image": "static/covers/ciencias-sociales.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/ciencias-sociales-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/ciencias-sociales"
   },
@@ -172,6 +182,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack ciencias-naturales-v1.0.0.zip",
     "rag_id": "ciencias-naturales",
+    "cover_image": "static/covers/ciencias-naturales.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/ciencias-naturales-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/ciencias-naturales"
   },
@@ -188,6 +199,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack ciencias-de-la-tierra-v1.0.0.zip",
     "rag_id": "ciencias-de-la-tierra",
+    "cover_image": "static/covers/ciencias-de-la-tierra.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/ciencias-de-la-tierra-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/ciencias-de-la-tierra"
   },
@@ -204,6 +216,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack ciencias-aplicadas-v1.0.0.zip",
     "rag_id": "ciencias-aplicadas",
+    "cover_image": "static/covers/ciencias-aplicadas.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/ciencias-aplicadas-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/ciencias-aplicadas"
   },
@@ -220,6 +233,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack planetalibro-historia-v1.0.0.zip",
     "rag_id": "planetalibro-historia",
+    "cover_image": "static/covers/planetalibro-historia.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/planetalibro-historia-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/planetalibro-historia"
   },
@@ -236,6 +250,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack textos-info-ensayo-v1.0.0.zip",
     "rag_id": "textos-info-ensayo",
+    "cover_image": "static/covers/textos-info-ensayo.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/textos-info-ensayo-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/textos-info-ensayo"
   },
@@ -252,6 +267,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack planetalibro-ciencia-v1.0.0.zip",
     "rag_id": "planetalibro-ciencia",
+    "cover_image": "static/covers/planetalibro-ciencia.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/planetalibro-ciencia-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/planetalibro-ciencia"
   },
@@ -268,6 +284,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack planetalibro-ensayo-v1.0.0.zip",
     "rag_id": "planetalibro-ensayo",
+    "cover_image": "static/covers/planetalibro-ensayo.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/planetalibro-ensayo-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/planetalibro-ensayo"
   },
@@ -284,6 +301,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack planetalibro-economia-v1.0.0.zip",
     "rag_id": "planetalibro-economia",
+    "cover_image": "static/covers/planetalibro-economia.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/planetalibro-economia-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/planetalibro-economia"
   },
@@ -300,6 +318,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack gutenberg-chemistry-biochemistry-v1.0.0.zip",
     "rag_id": "gutenberg-chemistry-biochemistry",
+    "cover_image": "static/covers/gutenberg-chemistry-biochemistry.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/gutenberg-chemistry-biochemistry-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/gutenberg-chemistry-biochemistry"
   },
@@ -316,6 +335,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack gutenberg-economics-v1.0.0.zip",
     "rag_id": "gutenberg-economics",
+    "cover_image": "static/covers/gutenberg-economics.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/gutenberg-economics-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/gutenberg-economics"
   },
@@ -332,6 +352,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack gutenberg-mathematics-v1.0.0.zip",
     "rag_id": "gutenberg-mathematics",
+    "cover_image": "static/covers/gutenberg-mathematics.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/gutenberg-mathematics-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/gutenberg-mathematics"
   },
@@ -348,6 +369,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack gutenberg-physics-v1.0.0.zip",
     "rag_id": "gutenberg-physics",
+    "cover_image": "static/covers/gutenberg-physics.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/gutenberg-physics-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/gutenberg-physics"
   },
@@ -364,6 +386,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack gutenberg-research-methods-information-systems-v1.0.0.zip",
     "rag_id": "gutenberg-research-methods-information-systems",
+    "cover_image": "static/covers/gutenberg-research-methods-information-systems.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/gutenberg-research-methods-information-systems-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/gutenberg-research-methods-information-systems"
   },
@@ -380,6 +403,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack textos-info-ciencia-v1.0.0.zip",
     "rag_id": "textos-info-ciencia",
+    "cover_image": "static/covers/textos-info-ciencia.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/textos-info-ciencia-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/textos-info-ciencia"
   },
@@ -396,6 +420,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack textos-info-historia-v1.0.0.zip",
     "rag_id": "textos-info-historia",
+    "cover_image": "static/covers/textos-info-historia.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/textos-info-historia-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/textos-info-historia"
   },
@@ -412,6 +437,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack gutenberg-engineering-technology-v1.0.0.zip",
     "rag_id": "gutenberg-engineering-technology",
+    "cover_image": "static/covers/gutenberg-engineering-technology.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/gutenberg-engineering-technology-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/gutenberg-engineering-technology"
   },
@@ -428,6 +454,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack textos-info-tratado-v1.0.0.zip",
     "rag_id": "textos-info-tratado",
+    "cover_image": "static/covers/textos-info-tratado.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/textos-info-tratado-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/textos-info-tratado"
   },
@@ -444,6 +471,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack textos-info-politica-v1.0.0.zip",
     "rag_id": "textos-info-politica",
+    "cover_image": "static/covers/textos-info-politica.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/textos-info-politica-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/textos-info-politica"
   },
@@ -460,6 +488,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack planetalibro-politica-v1.0.0.zip",
     "rag_id": "planetalibro-politica",
+    "cover_image": "static/covers/planetalibro-politica.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/planetalibro-politica-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/planetalibro-politica"
   },
@@ -476,6 +505,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack planetalibro-estrategia-v1.0.0.zip",
     "rag_id": "planetalibro-estrategia",
+    "cover_image": "static/covers/planetalibro-estrategia.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/planetalibro-estrategia-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/planetalibro-estrategia"
   },
@@ -492,6 +522,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack planetalibro-filosofia-v1.0.0.zip",
     "rag_id": "planetalibro-filosofia",
+    "cover_image": "static/covers/planetalibro-filosofia.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/planetalibro-filosofia-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/planetalibro-filosofia"
   },
@@ -508,6 +539,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack textos-info-filosofia-v1.0.0.zip",
     "rag_id": "textos-info-filosofia",
+    "cover_image": "static/covers/textos-info-filosofia.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/textos-info-filosofia-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/textos-info-filosofia"
   },
@@ -524,6 +556,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack cloud-computing-v1.0.0.zip",
     "rag_id": "cloud-computing",
+    "cover_image": "static/covers/cloud-computing.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/cloud-computing-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/cloud-computing"
   },
@@ -540,6 +573,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack computacion-cuantica-v1.0.0.zip",
     "rag_id": "computacion-cuantica",
+    "cover_image": "static/covers/computacion-cuantica.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/computacion-cuantica-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/computacion-cuantica"
   },
@@ -556,6 +590,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack machine-learning-v1.0.0.zip",
     "rag_id": "machine-learning",
+    "cover_image": "static/covers/machine-learning.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/machine-learning-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/machine-learning"
   },
@@ -572,6 +607,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack computacion-v1.0.0.zip",
     "rag_id": "computacion",
+    "cover_image": "static/covers/computacion.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/computacion-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/computacion"
   },
@@ -588,6 +624,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack comercio-electronico-v1.0.0.zip",
     "rag_id": "comercio-electronico",
+    "cover_image": "static/covers/comercio-electronico.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/comercio-electronico-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/comercio-electronico"
   },
@@ -604,6 +641,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack seguridad-informatica-v1.0.0.zip",
     "rag_id": "seguridad-informatica",
+    "cover_image": "static/covers/seguridad-informatica.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/seguridad-informatica-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/seguridad-informatica"
   },
@@ -620,6 +658,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack inteligencia-artificial-v1.0.0.zip",
     "rag_id": "inteligencia-artificial",
+    "cover_image": "static/covers/inteligencia-artificial.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/inteligencia-artificial-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/inteligencia-artificial"
   },
@@ -636,6 +675,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack bases-de-datos-v1.0.0.zip",
     "rag_id": "bases-de-datos",
+    "cover_image": "static/covers/bases-de-datos.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/bases-de-datos-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/bases-de-datos"
   },
@@ -652,6 +692,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack blockchain-v1.0.0.zip",
     "rag_id": "blockchain",
+    "cover_image": "static/covers/blockchain.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/blockchain-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/blockchain"
   },
@@ -668,6 +709,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack diseno-grafico-v1.0.0.zip",
     "rag_id": "diseno-grafico",
+    "cover_image": "static/covers/diseno-grafico.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/diseno-grafico-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/diseno-grafico"
   },
@@ -684,6 +726,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack diseno-web-v1.0.0.zip",
     "rag_id": "diseno-web",
+    "cover_image": "static/covers/diseno-web.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/diseno-web-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/diseno-web"
   },
@@ -700,6 +743,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack redes-informaticas-v1.0.0.zip",
     "rag_id": "redes-informaticas",
+    "cover_image": "static/covers/redes-informaticas.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/redes-informaticas-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/redes-informaticas"
   },
@@ -716,6 +760,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack analisis-de-datos-v1.0.0.zip",
     "rag_id": "analisis-de-datos",
+    "cover_image": "static/covers/analisis-de-datos.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/analisis-de-datos-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/analisis-de-datos"
   },
@@ -732,6 +777,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack criptografia-v1.0.0.zip",
     "rag_id": "criptografia",
+    "cover_image": "static/covers/criptografia.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/criptografia-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/criptografia"
   },
@@ -748,6 +794,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack algoritmo-v1.0.0.zip",
     "rag_id": "algoritmo",
+    "cover_image": "static/covers/algoritmo.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/algoritmo-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/algoritmo"
   },
@@ -764,6 +811,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack automatizacion-v1.0.0.zip",
     "rag_id": "automatizacion",
+    "cover_image": "static/covers/automatizacion.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/automatizacion-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/automatizacion"
   },
@@ -780,6 +828,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack big-data-v1.0.0.zip",
     "rag_id": "big-data",
+    "cover_image": "static/covers/big-data.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/big-data-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/big-data"
   },
@@ -796,6 +845,7 @@
     "is_survival": false,
     "install_command": "smart-local import-pack desarrollo-web-v1.0.0.zip",
     "rag_id": "desarrollo-web",
+    "cover_image": "static/covers/desarrollo-web.jpg",
     "release_url": "https://github.com/resettingworld/catalogo/releases/download/v1.0.0/desarrollo-web-v1.0.0.zip",
     "catalogo_path": "https://github.com/resettingworld/catalogo/tree/main/catalogs/desarrollo-web"
   }

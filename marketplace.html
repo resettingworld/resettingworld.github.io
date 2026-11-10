@@ -299,27 +299,35 @@
         const catKey = CAT_KEY_MAP[it.portal_category];
         const catLabel = (catKey && dict[catKey]) ? dict[catKey] : it.portal_category;
 
+        const coverImg = it.cover_image || `static/covers/${it.id}.jpg`;
+
         const card = document.createElement('div');
-        card.className = `bg-punk-card border p-6 flex flex-col justify-between transition-all hover:-translate-y-1 ${borderClass}`;
+        card.className = `bg-punk-card border flex flex-col justify-between transition-all hover:-translate-y-1 overflow-hidden group ${borderClass}`;
         card.innerHTML = `
           <div>
-            <div class="flex items-center justify-between mb-3">
-              <span class="font-mono text-[10px] uppercase px-2 py-0.5 rounded-sm font-bold ${badgeColor}">
+            <div class="relative w-full aspect-video overflow-hidden bg-punk-black border-b border-punk-border">
+              <img src="${coverImg}" alt="${it.name}" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+              <div class="absolute inset-0 bg-gradient-to-t from-punk-card via-transparent to-black/40"></div>
+              <span class="absolute top-2.5 left-2.5 font-mono text-[10px] uppercase px-2 py-0.5 rounded-sm font-bold shadow ${badgeColor}">
                 ${catLabel}
               </span>
-              <span class="font-mono text-xs text-gray-400">${it.size_mb} MB</span>
+              <span class="absolute top-2.5 right-2.5 font-mono text-[11px] bg-black/80 text-white px-2 py-0.5 border border-punk-border">
+                ${it.size_mb} MB
+              </span>
             </div>
 
-            <h3 class="font-display font-bold text-lg text-white uppercase mb-2 leading-snug">
-              ${it.name}
-            </h3>
+            <div class="p-5 pb-2">
+              <h3 class="font-display font-bold text-lg text-white uppercase mb-2 leading-snug">
+                ${it.name}
+              </h3>
 
-            <p class="text-gray-400 text-xs line-clamp-3 mb-4 leading-relaxed font-sans">
-              ${it.description || defaultDesc}
-            </p>
+              <p class="text-gray-400 text-xs line-clamp-3 mb-3 leading-relaxed font-sans">
+                ${it.description || defaultDesc}
+              </p>
+            </div>
           </div>
 
-          <div class="pt-4 border-t border-punk-border/60">
+          <div class="p-5 pt-4 border-t border-punk-border/60">
             <div class="flex items-center justify-between text-xs font-mono mb-3">
               <span class="text-gray-500">${it.books_count} ${volumesLabel}</span>
               <span class="text-punk-neonCyan text-[11px] font-bold">${verifiedLabel}</span>

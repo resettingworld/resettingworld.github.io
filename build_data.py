@@ -65,6 +65,7 @@ for it in items:
         'is_survival': is_survival,
         'install_command': f"smart-local import-pack {it['file']}",
         'rag_id': cid,
+        'cover_image': f"static/covers/{cid}.jpg",
         'release_url': f"https://github.com/resettingworld/catalogo/releases/download/v1.0.0/{it['file']}",
         'catalogo_path': f"https://github.com/resettingworld/catalogo/tree/main/catalogs/{cid}",
     })
@@ -74,4 +75,7 @@ enriched.sort(key=lambda x: (not x['is_survival'], x['portal_category'], -x['boo
 with open('web/static/catalog.json', 'w', encoding='utf-8') as f:
     json.dump(enriched, f, indent=2, ensure_ascii=False)
 
-print(f"Generated web/static/catalog.json with {len(enriched)} packs.")
+with open('web/static/catalog.js', 'w', encoding='utf-8') as f:
+    f.write('window.RW_CATALOG = ' + json.dumps(enriched, ensure_ascii=False) + ';\n')
+
+print(f"Generated web/static/catalog.json & catalog.js with {len(enriched)} packs.")
